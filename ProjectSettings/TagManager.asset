@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - Zemin
+  - checkpoint
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - UI
   - Zemin
   - duvar
-  - 
-  - 
+  - player
+  - "d\xFC\u015Fman"
   - 
   - 
   - 
@@ -41,6 +42,21 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: background
+    uniqueID: 2846540899
+    locked: 0
+  - name: foreground
+    uniqueID: 1625786105
+    locked: 0
+  - name: ground
+    uniqueID: 3970778601
+    locked: 0
+  - name: player
+    uniqueID: 1704548491
+    locked: 0
+  - name: "alevtoplar\u0131"
+    uniqueID: 3130443625
     locked: 0
   m_RenderingLayers:
   - Default
