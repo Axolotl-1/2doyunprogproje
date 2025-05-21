@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-       horizontalInput = Input.GetAxis("Horizontal");
+        horizontalInput = Input.GetAxis("Horizontal");
 
         //Karakter sağa sola hareket ettiğinde dönmesini sağlayan kod.
         {
@@ -55,12 +55,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else
                 body.gravityScale = 3.5f;
-                
-                if (Input.GetKey(KeyCode.Space))
+
+            if (Input.GetKey(KeyCode.Space))
                 jump();
         }
         else wjcooldown += Time.deltaTime;
-        
+
     }
     private void jump()
     {
@@ -80,15 +80,12 @@ public class PlayerMovement : MonoBehaviour
                 body.linearVelocity = new Vector2(-Mathf.Sign(transform.localScale.x) * 3, 12);
 
             wjcooldown = 0;
-            
+
         }
-        
+
 
     }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
 
-    }
     private bool zeminmi()
     {
         RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, Vector2.down, 0.1f, groundlayer);
@@ -96,7 +93,11 @@ public class PlayerMovement : MonoBehaviour
     }
     private bool duvarmi()
     {
-        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size,0, new Vector2(transform.localScale.x,0),0.1f,duvarlayer);
+        RaycastHit2D raycastHit = Physics2D.BoxCast(boxCollider.bounds.center, boxCollider.bounds.size, 0, new Vector2(transform.localScale.x, 0), 0.1f, duvarlayer);
         return raycastHit.collider != null;
+    }
+    public bool canattack()
+    {
+        return horizontalInput == 0 && zeminmi() && !duvarmi();
     }
 }
